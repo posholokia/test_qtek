@@ -1,0 +1,26 @@
+services:
+  test_db:
+    container_name: test_db
+    image: postgres:15
+    environment:
+      POSTGRES_DB: "test"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "123456"
+    ports:
+      - "5432:5432"
+    networks:
+      - dev-net
+    volumes:
+      - pg_data:/var/lib/postgresql/data/
+      - /var/run/docker.sock:/var/run/docker.sock
+
+
+networks:
+  dev-net:
+    name: dev-net
+    driver: bridge
+
+
+volumes:
+  pg_data:
+    name: pg_data
