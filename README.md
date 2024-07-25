@@ -41,3 +41,5 @@ docker compose -f ./docker/app.yml down
 или
 
 `make down`
+
+5. API документация http://localhost:8000/api/docs
